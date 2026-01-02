@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wildlife Sighting Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Plotly JS -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <h1 class="brand">Wildlife Dashboard</h1>
+      <nav class="links">
+        <a href="#map">Map</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#submit">Submit</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search / Controls -->
+    <section class="card controls">
+      <div class="controls-row">
+        <input id="speciesInput" type="text" placeholder="Enter species (e.g., koala, tiger)" />
+        <button id="searchBtn">Search</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+      <p class="hint">Tip: leave the box empty to see recent observations for all species.</p>
+    </section>
+
+    <!-- Map -->
+    <section id="map" class="card map"></section>
+
+    <!-- Submit form -->
+    <section id="submit" class="card form-card">
+      <h3>Submit a Sighting</h3>
+      <div class="form-grid">
+        <input type="text" id="userSpecies" placeholder="Animal Name (e.g., Leopard)" />
+        <input type="number" step="any" id="userLat" placeholder="Latitude (e.g., 19.0760)" />
+        <input type="number" step="any" id="userLng" placeholder="Longitude (e.g., 72.8777)" />
+        <button id="submitBtn">Submit</button>
+      </div>
+      <p id="submitMessage" class="feedback"></p>
+    </section>
+
+    <!-- Analytics -->
+    <section id="analytics" class="card">
+      <h3>Analytics</h3>
+      <!-- Analytics Map -->
+      <div id="analyticsMap" class="map" style="height:500px;"></div>
+      <div id="barChart" class="chart"></div>
+      <div id="trendChart" class="chart"></div>
+      <p class="note" id="dataNote"></p>
+    </section>
+    
+    <!-- Species Image -->
+<section class="card species-image-card" id="speciesImageCard" style="display:none; text-align:center;">
+    <h3 id="speciesImageTitle"></h3>
+    <img id="speciesImage" src="" alt="" style="max-width:300px; border-radius:8px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+</section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="card">
+      <h3>Animal Gallery</h3>
+      <div class="gallery-wrapper">
+        <div class="gallery">
+          <!-- Images will be dynamically loaded from API/user sightings -->
+           
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Wildlife Dashboard. All rights reserved.</p>
+      <p class="footer-note">A comprehensive dashboard showcasing wildlife sightings and analytics.</p>
+    </div>
+  </footer>
+
+  <!-- App JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

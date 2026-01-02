@@ -1,0 +1,22 @@
+[
+  {
+    "name": "panda",
+    "lat": 2,
+    "lng": 3
+  },
+  {
+    "name": "elephant",
+    "lat": 3,
+    "lng": 5
+  },
+  {
+    "name": "panda",
+    "lat": 4,
+    "lng": 3
+  },
+  {
+    "name": "sankes",
+    "lat": 10,
+    "lng": 9
+  }
+]
